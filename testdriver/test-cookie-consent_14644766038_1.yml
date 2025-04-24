@@ -1,0 +1,25 @@
+version: 4.2.29
+session: 680a5360522f14879ad4835d
+steps:
+  - prompt: Focus the browser window.
+    commands: []
+  - prompt: Click the "I accept all cookies" button.
+    commands:
+      - command: hover-text
+        text: I accept all cookies
+        description: red button on the cookie consent banner
+        action: click
+  - prompt: Assert that the cookie banner disappears.
+    commands:
+      - command: assert
+        expect: the cookie banner is not visible
+  - prompt: Reload the page.
+    commands:
+      - command: press-keys
+        keys:
+          - control
+          - r
+  - prompt: Assert that the cookie banner does not reappear.
+    commands:
+      - command: assert
+        expect: the cookie banner is not visible
